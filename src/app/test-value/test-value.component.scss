@@ -1,0 +1,223 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  color: #252a35;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.page {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 32px 20px;
+  background:
+    radial-gradient(ellipse at 15% 10%, #e8edff 0, transparent 38%),
+    #f5f6fa;
+}
+
+.todo-card {
+  width: min(100%, 520px);
+  padding: 40px;
+  border: 1px solid #e8eaf0;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 20px 60px rgb(34 45 80 / 9%);
+}
+
+.card-header {
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  color: #6269d9;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.13em;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(28px, 6vw, 36px);
+  letter-spacing: -0.045em;
+}
+
+.subtitle {
+  margin: 8px 0 0;
+  color: #858b99;
+  font-size: 14px;
+}
+
+.add-form {
+  display: flex;
+  gap: 10px;
+}
+
+.add-form input {
+  min-width: 0;
+  flex: 1;
+  padding: 13px 15px;
+  border: 1px solid #e1e4eb;
+  border-radius: 10px;
+  outline: none;
+  color: inherit;
+  font: inherit;
+  font-size: 14px;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.add-form input::placeholder {
+  color: #a0a5b1;
+}
+
+.add-form input:focus {
+  border-color: #676ce0;
+  box-shadow: 0 0 0 3px rgb(103 108 224 / 14%);
+}
+
+.add-button {
+  padding: 0 18px;
+  border: 0;
+  border-radius: 10px;
+  background: #6268d8;
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 650;
+  transition: background 150ms ease, transform 150ms ease;
+}
+
+.add-button:hover {
+  transform: translateY(-1px);
+  background: #5056c5;
+}
+
+.empty-state {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  padding: 42px 12px 24px;
+  color: #858b99;
+  font-size: 13px;
+}
+
+.empty-icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 4px;
+  place-items: center;
+  border-radius: 50%;
+  background: #eff0ff;
+  color: #6268d8;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.empty-state p {
+  margin: 0;
+  color: #3c4250;
+  font-size: 15px;
+  font-weight: 650;
+}
+
+.task-list {
+  display: grid;
+  gap: 4px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.task-row {
+  display: flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-bottom: 1px solid #f0f1f5;
+}
+
+.task-label {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.task-label input {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 auto;
+  accent-color: #6268d8;
+  cursor: pointer;
+}
+
+.task-title {
+  overflow-wrap: anywhere;
+  font-size: 14px;
+}
+
+.completed .task-title {
+  color: #9a9eaa;
+  text-decoration: line-through;
+}
+
+.remove-button {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: #9a9eaa;
+  cursor: pointer;
+  font: inherit;
+  font-size: 23px;
+  line-height: 1;
+}
+
+.remove-button:hover {
+  background: #fff0f0;
+  color: #d34d55;
+}
+
+.task-count {
+  margin: 18px 0 0;
+  color: #858b99;
+  font-size: 12px;
+}
+
+.task-count span {
+  padding: 0 5px;
+  color: #c0c3cc;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+@media (max-width: 480px) {
+  .todo-card {
+    padding: 28px 22px;
+  }
+
+  .add-form {
+    align-items: stretch;
+  }
+
+  .add-button {
+    padding: 0 13px;
+  }
+}
