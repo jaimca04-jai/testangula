@@ -1,0 +1,59 @@
+<main class="page">
+  <section class="todo-card" aria-labelledby="todo-title">
+    <header class="card-header">
+      <p class="eyebrow">YOUR DAY, IN FOCUS</p>
+      <h1 id="todo-title">My to-do list</h1>
+      <p class="subtitle">A little progress adds up.</p>
+    </header>
+
+    <form class="add-form" (submit)="addTask($event, taskInput)">
+      <label class="visually-hidden" for="new-task">Add a task</label>
+      <input
+        #taskInput
+        id="new-task"
+        name="task"
+        type="text"
+        placeholder="What needs to get done?"
+        autocomplete="off"
+      />
+      <button class="add-button" type="submit">Add task</button>
+    </form>
+
+    @if (tasks.length === 0) {
+      <div class="empty-state">
+        <span class="empty-icon" aria-hidden="true">✓</span>
+        <p>Your list is clear.</p>
+        <span>Add a task to get started.</span>
+      </div>
+    } @else {
+      <ul class="task-list" aria-label="Tasks">
+        @for (task of tasks; track task.id) {
+          <li class="task-row" [class.completed]="task.completed">
+            <label class="task-label">
+              <input
+                type="checkbox"
+                [checked]="task.completed"
+                (change)="toggleTask(task)"
+              />
+              <span class="task-title">{{ task.title }}</span>
+            </label>
+            <button
+              class="remove-button"
+              type="button"
+              [attr.aria-label]="'Remove ' + task.title"
+              (click)="removeTask(task)"
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+          </li>
+        }
+      </ul>
+
+      <p class="task-count" aria-live="polite">
+        {{ tasks.length }} {{ tasks.length === 1 ? 'task' : 'tasks' }}
+        <span>·</span>
+        {{ completedTaskCount }} completed
+      </p>
+    }
+  </section>
+</main>
